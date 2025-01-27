@@ -22,6 +22,10 @@ resource "aws_security_group" "sg" {
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
   }
+
+  tags = {
+    Name = "${var.tool_name}-sg"
+  }
 }
 
 resource "aws_instance" "instance" {
@@ -30,6 +34,9 @@ resource "aws_instance" "instance" {
   vpc_security_group_ids = [aws_security_group.sg.id]
   tags = {
     Name = var.tool_name
+  }
+  root_block_device{
+    volume_size = var.volume_size
   }
 }
 
