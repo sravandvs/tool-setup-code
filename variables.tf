@@ -4,6 +4,7 @@ variable "tools" {
    vault = {
     port        = 8200
     volume_size = 20
+     instance_type = "t3.small"
   }
 
  }
@@ -15,4 +16,5 @@ variable "zone_id" {
 
 variable "domain_name" {
   default = "devopsdvs.online"
+
 }
