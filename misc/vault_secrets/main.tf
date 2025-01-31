@@ -16,7 +16,7 @@ variable "vault_token" {}
 
 resource "vault_mount" "roboshop-dev" {
   path      = "roboshop-dev"
-  type      = "test"
+  type      = "kv"
   options   = {version = "2" }
   description = "Roboshop Dev Secrets"
 }
