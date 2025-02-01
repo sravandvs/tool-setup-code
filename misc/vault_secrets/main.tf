@@ -3,6 +3,7 @@ terraform {
     bucket = "terraform-ds80"
     key    = "vault-secrets/terraform.tfstate"
     region = "us-east-1"
+
   }
 }
 
@@ -13,6 +14,13 @@ provider "vault" {
 }
 
 variable "vault_token" {}
+
+resource "vault_mount" "roboshop-dev" {
+  path      = "roboshop-dev"
+  type      = "kv"
+  options   = { version = "2" }
+  description = "Roboshop Dev Secrets"
+}
 
 resource "vault_generic_secret" "roboshop-dev" {
   path = "roboshop-dev/frontend"
