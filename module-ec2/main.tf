@@ -35,16 +35,6 @@ resource "aws_instance" "instance" {
   tags = {
     Name = var.tool_name
   }
-  root_block_device{
-    volume_size = var.volume_size
-  }
-  instance_market_options {
-    market_type = "spot"
-    spot_options {
-      instance_interruption_behavior = "stop"
-      spot_instance_type = "persistent"
-    }
-  }
 }
 
 resource "aws_route53_record" "record-public" {
