@@ -41,7 +41,7 @@ resource "vault_generic_secret" "catalogue" {
 
   data_json = <<EOT
 {
-  "MONGO": "true"
+  "MONGO": "true",
   "MONGO_URL" : "mongodb://mongodb-dev.devopsdvs.online:27017/catalogue"
 }
 EOT
@@ -53,7 +53,7 @@ path = "${vault_mount.roboshop-dev.path}/user"
 
 data_json = <<EOT
 {
-  "MONGO": "true"
+  "MONGO": "true",
   "MONGO_URL" : "mongodb://mongodb-dev.devopsdvs.online:27017/users",
   "REDIS_URL" : "redis://redis-dev.devopsdvs.online:6379"
 }
@@ -66,7 +66,7 @@ resource "vault_generic_secret" "cart" {
 
   data_json = <<EOT
 {
-  "REDIS_HOST": "redis-dev.devopsdvs.online"
+  "REDIS_HOST": "redis-dev.devopsdvs.online",
   "CATALOGUE_HOST": "catalogue-dev.devopsdvs.online"
 }
 EOT
@@ -91,12 +91,12 @@ resource "vault_generic_secret" "payment" {
 
   data_json = <<EOT
 {
-  "CART_HOST" : "cart-dev.devopsdvs.online"
-  "CART_PORT" : "8080"
-  "USER_HOST" : "user-dev.devopsdvs.online"
-  "USER_PORT" : "8080"
-  "AMQP_HOST" : "rabbitmq-dev.devopsdvs.online"
-  "AMQP_USER" : "roboshop"
+  "CART_HOST" : "cart-dev.devopsdvs.online",
+  "CART_PORT" : "8080",
+  "USER_HOST" : "user-dev.devopsdvs.online",
+  "USER_PORT" : "8080",
+  "AMQP_HOST" : "rabbitmq-dev.devopsdvs.online",
+  "AMQP_USER" : "roboshop",
   "AMQP_PASS" : "roboshop123"
 }
 EOT
