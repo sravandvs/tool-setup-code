@@ -41,7 +41,7 @@ resource "vault_generic_secret" "catalogue" {
 
   data_json = <<EOT
 {
-  "MONGO: "true"
+  "MONGO": "true"
   "MONGO_URL" : "mongodb://mongodb-dev.devopsdvs.online:27017/catalogue"
 }
 EOT
@@ -53,7 +53,7 @@ path = "${vault_mount.roboshop-dev.path}/user"
 
 data_json = <<EOT
 {
-  "MONGO: "true"
+  "MONGO": "true"
   "MONGO_URL" : "mongodb://mongodb-dev.devopsdvs.online:27017/users",
   "REDIS_URL" : "redis://redis-dev.devopsdvs.online:6379"
 }
@@ -66,7 +66,7 @@ resource "vault_generic_secret" "cart" {
 
   data_json = <<EOT
 {
-  "REDIS_HOST: "redis-dev.devopsdvs.online"
+  "REDIS_HOST": "redis-dev.devopsdvs.online"
   "CATALOGUE_HOST": "catalogue-dev.devopsdvs.online"
 }
 EOT
@@ -78,7 +78,7 @@ resource "vault_generic_secret" "shipping" {
 
   data_json = <<EOT
 {
-  "CART_ENDPOINT: "cart-dev.devopsdvs.online:8080",
+  "CART_ENDPOINT": "cart-dev.devopsdvs.online:8080",
   "DB_HOST": "mysql-dev.devopsdvs.online",
    "mysql_root_password" : "Roboshop@1"
 }
