@@ -85,13 +85,6 @@ resource "vault_generic_secret" "shipping" {
 EOT
 }
 
-Environment=CART_HOST=cart-{{ env }}.devopsdvs.online
-Environment=CART_PORT=8080
-Environment=USER_HOST=user-{{ env }}.devopsdvs.online
-Environment=USER_PORT=8080
-Environment=AMQP_HOST=rabbitmq-{{ env }}.devopsdvs.online
-Environment=AMQP_USER=roboshop
-Environment=AMQP_PASS=roboshop123
 
 resource "vault_generic_secret" "payment" {
   path = "${vault_mount.roboshop-dev.path}/payment"
