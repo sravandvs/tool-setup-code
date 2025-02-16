@@ -20,9 +20,10 @@
     owner: github-runner
     group: github-runner
 
-
 - name: Install libicu
   ansible.builtin.dnf:
     name: libicu
     state: installed
+
+
 
