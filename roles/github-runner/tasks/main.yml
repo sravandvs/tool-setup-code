@@ -25,16 +25,6 @@
     name: libicu
     state: installed
 
-- name: Get token
-  ansible.builtin.shell: |
-  gh api --method POST -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28" /orgs/joindevopstutorial/actions/runners/registration-token | jq .token
-  register: token
-  become_user: ec2-user
-
-- name: Register runner
-  ansible.builtin.shell: |
-   ./config.sh --unattended --url https://github.com/joindevopstutorial --token {{ token.stdout }} --name {{ ansible_hostname }} --runnergroup Default
-  become_user: github-runner
 
 
 
